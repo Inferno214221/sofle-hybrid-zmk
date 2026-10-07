@@ -98,6 +98,105 @@
             mods = <(MOD_LSFT)>;
             keep-mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>;
         };
+
+//         // Any mod combination: persist all mods but send 1 instead of brace
+//         // Could mess with binding e.g. ctrl+shift+1 could be interpreted at ctrl+! or logically as ctrl+shift+{
+//         one_lcbr: one_left_brace {
+//             compatible = "zmk,behavior-mod-morph";
+//             #binding-cells = <0>;
+//             bindings = <&kp LBRC>, <&kp N1>;
+//             mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+//             keep-mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+//         };
+// 
+//         // Shift only: send 1 alone
+//         one_lcbr: one_left_brace {
+//             compatible = "zmk,behavior-mod-morph";
+//             #binding-cells = <0>;
+//             bindings = <&kp LBRC>, <&kp N1>;
+//             mods = <(MOD_LSFT)>;
+//         };
+        
+        // Any mods: remove shift and replace with 1
+        one_lcbr: one_left_brace {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LBRC>, <&kp N1>;
+            mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+            keep-mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+        };
+
+        two_rcbr: two_right_brace {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RBRC>, <&kp N2>;
+            mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+            keep-mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+        };
+
+        thre_labk: three_left_angle {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LT>, <&kp N3>;
+            mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+            keep-mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+        };
+
+        four_rabk: four_right_angle {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp GT>, <&kp N4>;
+            mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+            keep-mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+        };
+        
+        // five_none: five_none {
+        //     compatible = "zmk,behavior-mod-morph";
+        //     #binding-cells = <0>;
+        //     bindings = <&kp MINUS>, <&kp N5>;
+        //     mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+        //     keep-mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+        // };
+
+        six_perc: six_percent {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp PRCNT>, <&kp N6>;
+            mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+            keep-mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+        };
+        
+        seven_lbrc: seven_left_bracket {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LBKT>, <&kp N7>;
+            mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+            keep-mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+        };
+        
+        eigh_rbrc: eight_right_bracket {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RBKT>, <&kp N8>;
+            mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+            keep-mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+        };
+        
+        nine_lprn: nine_left_parentheses {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LPAR>, <&kp N9>;
+            mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+            keep-mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+        };
+        
+        zero_lprn: zero_right_parentheses {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RPAR>, <&kp N0>;
+            mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+            keep-mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+        };
     };
 
     keymap {
@@ -109,7 +208,7 @@
             // PRINT_SCREEN, CALC
 
             bindings = <
-&kp ESC     &kp N1      &kp N2      &kp N3      &kp N4      &kp N5                              &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &sl FN
+&kp ESC     &kp LBRC    &kp RBRC    &kp LT      &kp GT      &kp N5                              &kp PRCNT   &kp LBKT    &kp RBKT    &kp LPAR    &kp RPAR    &sl FN
 &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T                               &kp Y       &kp U       &kp I       &kp O       &kp P       &hash_astr
 &kp LGUI    &kp A       &kp S       &kp D       &kp F       &kp G                               &kp H       &kp J       &kp K       &kp L       &kp SEMI    &kp SQT
 &kp GRAVE   &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp N       &kp M       &comm_dlr   &dot        &slsh_bsls  &ampr_pipe
