@@ -150,13 +150,13 @@
             keep-mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>;
         };
         
-        // five_none: five_none {
-        //     compatible = "zmk,behavior-mod-morph";
-        //     #binding-cells = <0>;
-        //     bindings = <&kp MINUS>, <&kp N5>;
-        //     mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
-        //     keep-mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>;
-        // };
+        five_none: five_none {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp MINUS>, <&kp N5>;
+            mods = <(MOD_LSFT|MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+            keep-mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>;
+        };
 
         six_perc: six_percent {
             compatible = "zmk,behavior-mod-morph";
@@ -166,7 +166,7 @@
             keep-mods = <(MOD_LCTL|MOD_LALT|MOD_LGUI)>;
         };
         
-        seven_lbrc: seven_left_bracket {
+        sevn_lbrc: seven_left_bracket {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp LBKT>, <&kp N7>;
@@ -208,7 +208,7 @@
             // PRINT_SCREEN, CALC
 
             bindings = <
-&kp ESC     &kp LBRC    &kp RBRC    &kp LT      &kp GT      &kp N5                              &kp PRCNT   &kp LBKT    &kp RBKT    &kp LPAR    &kp RPAR    &sl FN
+&kp ESC     &one_lcbr   &two_rcbr   &thre_labk  &four_rabk  &five_none                          &six_perc   &sevn_lbrc  &eigh_rbrc  &nine_lprn  &zero_lprn  &sl FN
 &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T                               &kp Y       &kp U       &kp I       &kp O       &kp P       &hash_astr
 &kp LGUI    &kp A       &kp S       &kp D       &kp F       &kp G                               &kp H       &kp J       &kp K       &kp L       &kp SEMI    &kp SQT
 &kp GRAVE   &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp N       &kp M       &comm_dlr   &dot        &slsh_bsls  &ampr_pipe
