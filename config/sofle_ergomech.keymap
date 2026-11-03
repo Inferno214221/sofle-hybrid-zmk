@@ -14,7 +14,9 @@
 #define BASE 0
 #define ALT 1
 #define FN 2
-// #define ADJUST 3
+#define BT 3
+
+#define CALC C_AL_CALC
 
 / {
     // Activate ADJUST layer by pressing raise and lower
@@ -218,23 +220,22 @@
 &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T                               &kp Y       &kp U       &kp I       &kp O       &kp P       &hash_astr
 &kp LGUI    &kp A       &kp S       &kp D       &kp F       &kp G                               &kp H       &kp J       &kp K       &kp L       &kp SEMI    &kp SQT
 &kp GRAVE   &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp N       &kp M       &comm_dlr   &dot        &slsh_bsls  &ampr_pipe
-&none                   &kp MINUS   &kp EQUAL   &kp LSHIFT  &kp BSPC    &kp LCTRL   &mo_alt     &kp SPACE   &kp ENTER   &exlm_circ  &ques_at
+&sl BT                  &kp MINUS   &kp EQUAL   &kp LSHIFT  &kp BSPC    &kp LCTRL   &mo_alt     &kp SPACE   &kp ENTER   &exlm_circ  &ques_at
 
                                                                                     &trans      &kp RIGHT   &kp UP      &kp LEFT    &kp DOWN
             >;
 
             sensor-bindings = <&mousescroll &dud>;
         };
-        
         alt_layer {
             label = "alt";
             
             bindings = <
-&trans      &trans      &trans      &trans      &trans      &na C_AL_CALC                       &na PSCRN   &trans      &trans      &trans      &trans      &trans
+&trans      &trans      &trans      &trans      &trans      &trans                              &na CALC    &trans      &trans      &trans      &trans      &trans
 &trans      &trans      &trans      &trans      &trans      &trans                              &trans      &trans      &trans      &trans      &trans      &trans
 &trans      &trans      &trans      &trans      &trans      &trans                              &trans      &trans      &trans      &trans      &trans      &trans
 &trans      &trans      &trans      &trans      &trans      &trans                              &trans      &trans      &trans      &trans      &trans      &trans
-&bt BT_CLR              &trans      &trans      &trans      &kp DEL     &trans      &trans      &trans      &trans      &trans      &trans
+&none                   &trans      &trans      &trans      &na DEL     &trans      &trans      &trans      &trans      &trans      &trans
 
                                                                                     &trans      &na END     &na PG_UP   &na HOME    &na PG_DN
             >;
@@ -258,31 +259,24 @@
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &dud>;
         };
 
-//         bluetooth_layer {
-//             label = "bluetooth";
+        bluetooth_layer {
+            label = "bluetooth";
             
-//             bindings = <
-// &trans      &trans      &trans      &trans      &trans      &trans                              &trans      &trans      &trans      &trans      &trans      &trans
-// &trans      &trans      &trans      &trans      &trans      &trans                              &trans      &trans      &trans      &trans      &trans      &trans
-// &trans      &trans      &trans      &trans      &trans      &trans                              &trans      &trans      &trans      &trans      &trans      &trans
-// &trans      &trans      &trans      &trans      &trans      &trans                              &trans      &trans      &trans      &trans      &trans      &trans
-// &bt BT_CLR              &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+            bindings = <
+&bt BT_CLR  &trans      &trans      &trans      &trans      &trans                              &trans      &trans      &trans      &trans      &trans      &trans
+&trans      &trans      &trans      &trans      &trans      &trans                              &trans      &trans      &trans      &trans      &trans      &trans
+&trans      &trans      &trans      &trans      &trans      &trans                              &trans      &trans      &trans      &trans      &trans      &trans
+&trans      &trans      &trans      &trans      &trans      &trans                              &trans      &trans      &trans      &trans      &trans      &trans
+&trans                  &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
 
-//                                                                                     &trans      &trans      &trans      &trans      &trans
-//             >;
+                                                                                    &trans      &trans      &trans      &trans      &trans
+            >;
 
-//             sensor-bindings = <&bt_cycle &inc_dec_kp PG_UP PG_DN>;
-//         };
+            sensor-bindings = <&bt_cycle &dud>;
+        };
 
 //         raise_layer {
 //             label = "raise";
-
-//             // ------------------------------------------------------------------------------------------------------------
-//             // | BTCLR | BT1  | BT2  |  BT3  |  BT4  |  BT5 |                |      |      |       |      |       |       |
-//             // |       | INS  | PSCR | GUI   |       |      |                | PGUP |      |   ^   |      |       |       |
-//             // |       | ALT  | CTRL | SHIFT |       | CAPS |                | PGDN |   <- |   v   |  ->  |  DEL  | BKSPC |
-//             // |       | UNDO | CUT  | COPY  | PASTE |      |      |  |      |      |      |       |      |       |       |
-//             //                |      |       |       |      |      |  |      |      |      |       |      |
 
 //             bindings = <
 // &bt BT_CLR  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                    &trans      &trans      &trans      &trans      &trans      &trans
